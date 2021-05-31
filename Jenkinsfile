@@ -31,7 +31,8 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh 'heroku git:remote -a project-hello-world-app'
-                sh 'git push heroku main'
+                sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/master'
+                echo 'Heroku App deployment Complete !!'
             }
         }
     }
