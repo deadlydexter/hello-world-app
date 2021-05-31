@@ -30,7 +30,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'git push heroku master'
+                sh 'heroku git:remote -a project-hello-world-app'
+                sh 'git push heroku main'
             }
         }
     }
