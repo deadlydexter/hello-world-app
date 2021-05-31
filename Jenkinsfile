@@ -25,15 +25,22 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'npm run test'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh 'heroku git:remote -a project-hello-world-app'
-                sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/master'
-                echo 'Heroku App deployment Complete !!'
+        stage('Deploy to Heroku') {
+        steps {
+            script { 
+                if (env.BRANCH_NAME == 'main' ) {
+                    echo 'Deploying to Heroku ....'
+                    sh 'heroku git:remote -a project-hello-world-app'
+                    sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/master'
+                    echo 'Heroku App deployment Complete !!'
+                } else {
+                    echo 'Code will not be deployed to Heroku'
+                }
             }
+        }
         }
     }
 }
