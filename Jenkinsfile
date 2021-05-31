@@ -30,6 +30,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'git push heroku master'
             }
         }
     }
