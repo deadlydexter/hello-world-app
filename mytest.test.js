@@ -7,7 +7,7 @@ beforeEach(() => {
     server = request(app);
 });
 
-describe('custom test cases turtleopedia', () => {
+describe('Running Unit Tests: gets status code 200', () => {
     it('GET request', async () => {
         const url = '/';
         const response = await server.get(url);

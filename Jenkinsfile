@@ -42,5 +42,11 @@ pipeline {
             }
         }
         }
+        stage('Testcafe Tests') {
+            steps {
+                echo 'Running chrome in Headless mode'
+                sh 'npm run testcafe-chrome'
+            }
+        }
     }
 }

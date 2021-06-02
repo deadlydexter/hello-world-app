@@ -6,21 +6,29 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "sonar": "node sonar-project.js",
-    "test": "jest . --forceExit --runInBand"
+    "test": "jest ./mytest.test.js --forceExit --runInBand",
+    "testcafe-chrome": "testcafe chrome:headless tests",
+    "testcafe-edge": "testcafe edge tests"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-handlebars": "^5.3.2",
+    "handlebars": "^4.7.7",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7",
-    "sonarqube-scanner": "^2.8.0"
+    "sonarqube-scanner": "^2.8.0",
+    "testcafe": "^1.14.2"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "cucumber": "^7.0.0-rc.0",
+    "hamjest": "^3.7.2",
     "jest": "^27.0.3",
+    "selenium-cucumber-js": "^1.8.1",
     "supertest": "^6.1.3"
   }
 }
