@@ -28,7 +28,6 @@
     "cucumber": "^7.0.0-rc.0",
     "hamjest": "^3.7.2",
     "jest": "^27.0.3",
-    "selenium-cucumber-js": "^1.8.1",
     "supertest": "^6.1.3"
   }
 }
