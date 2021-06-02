@@ -1,8 +1,13 @@
 import { Selector } from 'testcafe';
 
-fixture`Test Hello World`.page`https://project-hello-world-app.herokuapp.com/`;
+fixture`TestCafe`
+    .page('https://project-hello-world-app.herokuapp.com/');
 
-test('Hello world is dplayed on homepage', async t => {
-    await t
+test('Closing specific windows', async t => {
+
+    await t.openWindow('https://project-hello-world-app.herokuapp.com/')
         .expect(Selector('h1').innerText).eql('Hello World !!');
+    const devexpress = await t.getCurrentWindow();
+
+    await t.closeWindow(devexpress);
 });

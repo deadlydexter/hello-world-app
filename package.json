@@ -7,7 +7,7 @@
     "dev": "nodemon ./bin/www",
     "sonar": "node sonar-project.js",
     "test": "jest ./mytest.test.js --forceExit --runInBand",
-    "testcafe-chrome": "testcafe chrome:headless tests",
+    "testcafe-chrome": "testcafe chrome tests",
     "testcafe-edge": "testcafe edge tests"
   },
   "dependencies": {
