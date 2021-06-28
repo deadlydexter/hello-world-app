@@ -33,7 +33,7 @@ pipeline {
             script { 
                 if (env.BRANCH_NAME == 'main' ) {
                     echo 'Deploying to Heroku ....'
-                    sh 'heroku git:remote -a project-hello-world-app'
+                    sh 'git remote -v'
                     sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/main'
                     echo 'Heroku App deployment Complete !!'
                 } else {
