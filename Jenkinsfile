@@ -34,6 +34,8 @@ pipeline {
                 if (env.BRANCH_NAME == 'main' ) {
                     echo 'Deploying to Heroku ....'
                     sh 'git remote -v'
+                    sh 'heroku -v'
+                    sh 'pwd'
                     sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/main'
                     echo 'Heroku App deployment Complete !!'
                 } else {
