@@ -34,10 +34,10 @@ pipeline {
                 if (env.BRANCH_NAME == 'main' ) {
                     echo 'Deploying to Heroku ....'
                     sh 'git remote -v'
-                    sh 'cat > /home/ubuntu/.netrc << EOF \
+                    sh 'sudo cat > /home/ubuntu/.netrc << EOF \
                     machine git.heroku.com \
                      login satheesh91.ss@gmail.com \
-                     password Goodluck100* \
+                     password a5f7abda-6291-4302-b834-dc2e6205fe96 \
                     EOF'
                     sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/main'
                     echo 'Heroku App deployment Complete !!'
