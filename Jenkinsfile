@@ -37,8 +37,8 @@ pipeline {
                     sh 'heroku -v'
                     sh 'pwd'
                     // sh 'heroku git:remote -a project-hello-world-app'
-                    // sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/main'
-                    sh 'git push heroku HEAD:master'
+                    sh 'git push https://git.heroku.com/project-hello-world-app.git HEAD:refs/heads/main'
+                    // sh 'git push heroku HEAD:master'
                     echo 'Heroku App deployment Complete !!'
                 } else {
                     echo 'Code will not be deployed to Heroku '
