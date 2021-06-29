@@ -3,7 +3,7 @@
 const sonarqubeScanner = require('sonarqube-scanner');
 sonarqubeScanner(
     {
-        serverUrl: 'http://54.158.36.246:9000/',
+        serverUrl: 'http://52.202.78.198:9000/',
         options: {
             'sonar.sources': 'routes, app.js, views, public, bin',
             'sonar.inclusions': '**', // Entry point of your code
