@@ -1,12 +1,27 @@
-FROM jenkins/jenkins:2.277.4-lts-slim
-ENV NODE_VERSION=12.6.0
-USER root
-RUN apt-get install -y curl
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-RUN node --version
-RUN npm --version
+FROM node:10
+
+# Change working directory
+WORKDIR "/app"
+
+# Update packages and install dependency packages for services
+RUN apt-get update \
+    && apt-get dist-upgrade -y \
+    && apt-get clean \
+    && echo 'Finished installing dependencies'
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install npm production packages 
+RUN npm install --production
+
+COPY . /app
+
+ENV NODE_ENV production
+ENV PORT 3000
+
+EXPOSE 3000
+
+USER node
+
+CMD ["npm", "start"]
