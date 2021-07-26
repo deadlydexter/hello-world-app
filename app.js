@@ -3,11 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let health = require('@cloudnative/health-connect');
+let healthcheck = new health.HealthChecker();
 var expressHbs = require('express-handlebars');
 var indexRouter = require('./routes/index');
-
+var prom = require('appmetrics-prometheus').attach()
 
 var app = express();
+let pingcheck = new health.PingCheck("google.com");
+// healthcheck.registerLivenessCheck(pingcheck);
+healthcheck.registerReadinessCheck(pingcheck);
+
+app.use('/live', health.LivenessEndpoint(healthcheck))
+app.use('/ready', health.ReadinessEndpoint(healthcheck))
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
