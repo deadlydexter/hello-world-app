@@ -1,4 +1,4 @@
-FROM node:16.13.1
+FROM node:current-slim
   
 ENV PORT 3000
 
