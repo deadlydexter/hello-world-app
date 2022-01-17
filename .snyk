@@ -1,0 +1,11 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:qs:20140806-1':
+    - testcafe > express > connect > qs:
+        patched: '2022-01-17T00:20:12.420Z'
+  'npm:ws:20160920':
+    - testcafe > socket.io > socket.io-client > ws:
+        patched: '2022-01-17T00:20:12.420Z'
