@@ -23,7 +23,7 @@
     "hbs": "~4.2.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.17",
     "sonarqube-scanner": "^2.8.0",
     "testcafe": "^13.1.1",
     "@snyk/protect": "latest"
